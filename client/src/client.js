@@ -1,6 +1,6 @@
-// import React from "react";
-// import ReactDOM from "react-dom";
-//import Root from "./Root";
+import React from "react";
+import ReactDOM from "react-dom";
+import Root from "./Root";
 
 /*
 import { createStore } from "./utils/redux";
@@ -20,7 +20,6 @@ const store = createStore(
 );
 */
 
-/*
 const initialState = undefined;
 
 function render(Component, rootElement, method = "render") {
@@ -36,4 +35,3 @@ if (module.hot) {
     render(HotReloadedRoot, rootElement, "render");
   });
 }
-*/

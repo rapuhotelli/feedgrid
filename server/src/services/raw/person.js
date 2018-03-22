@@ -10,21 +10,10 @@ const createPerson = () => {
     id: uuid(),
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
-    birthDay: faker.date.past(70, "1999-01-01"),
-    gender: r.pick(["m", "f"]),
-    handedness: r.pick(["l", "r"]),
-    salary: r.integer(2000, 10000),
     email: faker.internet.email(),
-    relatedToCEO: r.pick([
-      true,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ])
+    age: r.integer(10, 70),
+    gender: r.pick(["m", "f"]),
+    handedness: r.pick(["l", "r"])
   };
 };
 
