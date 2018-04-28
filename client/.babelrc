@@ -9,7 +9,8 @@
         },
         "modules": "commonjs"
       }
-    ]
+    ],
+    "react"
   ],
   "plugins": ["babel-plugin-transform-object-rest-spread"]
 }

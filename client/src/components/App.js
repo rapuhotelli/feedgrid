@@ -5,29 +5,18 @@ import IndexPage from "./IndexPage";
 import PersonPage from "./PersonPage";
 import { Switch, Route } from "react-router";
 
+import FancyTest from "./FancyTest";
+
 class App extends React.PureComponent {
-  componentDidMount() {
-    if (this.props.persons.count() > 0) {
-      return;
-    }
-    this.props.getPersons();
-  }
-
-  state = {
-    error: undefined
-  };
-
-  componentDidCatch(e) {
-    this.setState({ error: e });
-  }
-
   render() {
-    const { loading, persons, hirePerson, firePerson } = this.props;
+    const { loading } = this.props;
+    /*
     const { error } = this.state;
 
     if (error) {
       return <div>{error.message}</div>;
     }
+    */
 
     return (
       <div>
@@ -35,7 +24,11 @@ class App extends React.PureComponent {
 
         <h1>
           <img src={require("../assets/trollo.png")} alt="Trol" />
-          Tussinaama
+          <FancyTest
+            tyyppi="youtube"
+            viesti="juuh elikkäalskjdhaksjh"
+            kikki="tussi"
+          />
         </h1>
       </div>
     );

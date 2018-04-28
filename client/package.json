@@ -4,20 +4,17 @@
   "description": "A training / starter project utilizing Broilerplate & React",
   "main": "src",
   "scripts": {
-    "build:client":
-      "cross-env NODE_ENV=production webpack --progress --display-optimization-bailout",
-    "build:server":
-      "cross-env NODE_ENV=production webpack --progress --config webpack.server.config.babel.js --display-optimization-bailout",
-    "build:node":
-      "cross-env NODE_ENV=production babel src/index.js > dist-server/index.js",
-    "build":
-      "yarn run build:client && yarn run build:server && yarn run build:node",
+    "build:client": "cross-env NODE_ENV=production webpack --progress --display-optimization-bailout",
+    "build:server": "cross-env NODE_ENV=production webpack --progress --config webpack.server.config.babel.js --display-optimization-bailout",
+    "build:node": "cross-env NODE_ENV=production babel src/index.js > dist-server/index.js",
+    "build": "yarn run build:client && yarn run build:server && yarn run build:node",
     "lint": "eslint src",
     "babel-node": "babel-node",
-    "start":
-      "cross-env NODE_ENV=development webpack-dev-server --port 8888 --history-api-fallback --hot --inline",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --port 8888 --history-api-fallback --hot --inline",
     "flow": "flow",
-    "test": "jest"
+    "test": "jest",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -35,8 +32,7 @@
   "license": "BSD-3-Clause",
   "jest": {
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-        "<rootDir>/__mocks__/fileMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css)$": "<rootDir>/__mocks__/styleMock.js",
       "\\.(pcss)$": "identity-obj-proxy"
     }
@@ -120,6 +116,11 @@
     "redux-devtools-extension": "^2.13.2",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12",
-    "webpack-dev-server": "3.1.1"
+    "webpack-dev-server": "3.1.1",
+    "@storybook/react": "^3.4.3",
+    "@storybook/addon-actions": "^3.4.3",
+    "@storybook/addon-links": "^3.4.3",
+    "@storybook/addons": "^3.4.3",
+    "babel-runtime": "^6.26.0"
   }
 }
