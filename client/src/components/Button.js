@@ -8,7 +8,7 @@ export default styled.button`
     background-color: black;
     color: white;
   }
-  
+
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
