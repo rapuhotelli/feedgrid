@@ -37,31 +37,6 @@ class App extends React.PureComponent {
           <img src={require("../assets/trollo.png")} alt="Trol" />
           Tussinaama
         </h1>
-
-        <Switch>
-          <Route
-            path="/"
-            exact
-            render={props => {
-              return (
-                <IndexPage
-                  persons={persons}
-                  hirePerson={hirePerson}
-                  firePerson={firePerson}
-                />
-              );
-            }}
-          />
-          <Route
-            path="/person/:id"
-            exact
-            render={props => {
-              const { id } = props.match.params;
-              const person = persons.find(p => p.id === id);
-              return <PersonPage person={person} />;
-            }}
-          />
-        </Switch>
       </div>
     );
   }
