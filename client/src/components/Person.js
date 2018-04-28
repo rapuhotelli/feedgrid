@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import Button from "./Button";
 import Icon from "react-fa";
 import { pure } from "recompose";
+import { Link } from "react-router-dom";
 
 const Person = props => {
   const { person, firePerson } = props;
@@ -13,11 +14,16 @@ const Person = props => {
     [styles.male]: person.gender === "m",
     [styles.female]: person.gender === "f"
   });
+
   return (
     <div className={classes}>
-      {person.lastName}, {person.firstName} ({person.age} vuotta)
+      <Link to={`/person/${person.id}`}>
+        {person.lastName}, {person.firstName} ({person.age} vuotta)
+      </Link>
       <div>
+
         <Button
+          disabled={person.firing === true}
           block
           onClick={() => {
             firePerson(person.id);

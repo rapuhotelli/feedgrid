@@ -25,7 +25,29 @@ const getPersons = () => {
     });
 };
 
+const hirePerson = person => {
+  return axios
+    .post("http://localhost:8889/person")
+    .then(ret => person)
+    .catch(e => {
+      console.log(e);
+      throw e;
+    });
+};
+
+const firePerson = id => {
+  return axios
+    .delete("http://localhost:8889/person/" + id)
+    .then(ret => id)
+    .catch(e => {
+      console.log(e);
+      throw e;
+    });
+};
+
 export default {
   createPerson,
-  getPersons
+  getPersons,
+  hirePerson,
+  firePerson
 };

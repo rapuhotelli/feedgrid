@@ -1,77 +1,67 @@
 import React from "react";
-import personService from "../services/person";
-import PersonList from "./PersonList";
 import styles from "./App.pcss";
-import { List } from "immutable";
-import AddPersonForm from "./AddPersonForm";
-/* // lol
-{new Array(200).fill("x").map(() => {
-  return <Person  person={personService.createPerson()} />;
-})}
-*/
-
-const persons = Array.from(Array(30), personService.createPerson);
+import Loading from "./Loading";
+import IndexPage from "./IndexPage";
+import PersonPage from "./PersonPage";
+import { Switch, Route } from "react-router";
 
 class App extends React.PureComponent {
-  state = {
-    persons: List()
-  };
-
   componentDidMount() {
-    personService.getPersons().then(persons => {
-      this.setState(() => {
-        return {
-          persons: List(persons)
-        };
-      });
-    });
+    if (this.props.persons.count() > 0) {
+      return;
+    }
+    this.props.getPersons();
   }
 
-  firePerson = id => {
-    this.setState(state => {
-      return {
-        persons: state.persons.filter(p => p.id !== id)
-      };
-    });
+  state = {
+    error: undefined
   };
 
-  hirePerson = person => {
-    this.setState(state => {
-      return {
-        persons: this.state.persons.push(person)
-      };
-    });
-  };
+  componentDidCatch(e) {
+    this.setState({ error: e });
+  }
 
   render() {
-    const { persons } = this.state;
+    const { loading, persons, hirePerson, firePerson } = this.props;
+    const { error } = this.state;
 
-    const goodPeople = persons.filter(p => p.gender === "m" && p.age <= 30);
-    const badPeople = persons.filter(p => p.gender === "f" || p.age > 30);
+    if (error) {
+      return <div>{error.message}</div>;
+    }
 
     return (
       <div>
+        {loading > 0 && <Loading />}
+
         <h1>
           <img src={require("../assets/trollo.png")} alt="Trol" />
           Tussinaama
         </h1>
 
-        <AddPersonForm hirePerson={this.hirePerson} />
-
-        <hr />
-
-        <PersonList
-          title="Hyvät henkilöt"
-          people={goodPeople}
-          firePerson={this.firePerson}
-        />
-
-        <PersonList
-          title="Pahat henkilöt"
-          showMeta
-          people={badPeople}
-          firePerson={this.firePerson}
-        />
+        <Switch>
+          <Route
+            path="/"
+            exact
+            render={props => {
+              return (
+                <IndexPage
+                  persons={persons}
+                  hirePerson={hirePerson}
+                  firePerson={firePerson}
+                />
+              );
+            }}
+          />
+          <Route
+            path="/person/:id"
+            exact
+            render={props => {
+              const { id } = props.match.params;
+              const person = persons.find(p => p.id === id);
+              return <PersonPage person={person} />;
+            }}
+          />
+        </Switch>
       </div>
     );
   }
