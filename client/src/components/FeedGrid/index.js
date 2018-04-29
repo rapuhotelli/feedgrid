@@ -1,7 +1,14 @@
 import React from "react";
 
-export default class FeedGrid extends React.Component {
-  render() {
-    return <div>FeedGrid</div>;
-  }
+const FeedGrid = () => {
+
+  const { feed } = this.props
+
+
+  return (
+    <div>
+      {}
+    </div>
+  );
+
 }
