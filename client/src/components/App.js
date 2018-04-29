@@ -3,7 +3,10 @@ import styles from "./App.pcss";
 import Loading from "./Loading";
 // import IndexPage from "./IndexPage";
 import FeedGrid from "./FeedGrid";
+// import { getYoutubeChannel } from "../services/feeds";
 import { Switch, Route } from "react-router";
+
+// const myTestChannels = ["InTheLittleWood"];
 
 class App extends React.PureComponent {
   componentDidMount() {
@@ -11,6 +14,7 @@ class App extends React.PureComponent {
       return;
     }
     // this.props.getPersons();
+    // this.myTestChannels.map getYoutubeChannel("InTheLittleWood");
   }
 
   state = {

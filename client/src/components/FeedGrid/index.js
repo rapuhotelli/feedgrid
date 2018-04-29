@@ -1,14 +1,9 @@
 import React from "react";
 
-const FeedGrid = () => {
+const FeedGrid = props => {
+  const { feed } = props;
 
-  const { feed } = this.props
+  return <div>{}</div>;
+};
 
-
-  return (
-    <div>
-      {}
-    </div>
-  );
-
-}
+export default FeedGrid;
