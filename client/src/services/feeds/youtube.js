@@ -1,5 +1,5 @@
 import axios from "axios/index";
-import { YOUTUBE_API_KEY } from "../config/api";
+import { YOUTUBE_API_KEY } from "../../config/api";
 
 const validateChannel = (items, query) => {
   const result = items.filter(item => {
@@ -38,4 +38,4 @@ const getYoutubeChannel = async query => {
 
 export default {
   getYoutubeChannel
-}
+};

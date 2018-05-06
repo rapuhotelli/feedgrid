@@ -10,9 +10,11 @@ import { Switch, Route } from "react-router";
 
 class App extends React.PureComponent {
   componentDidMount() {
+    /*
     if (this.props.persons.count() > 0) {
       return;
     }
+    */
     // this.props.getPersons();
     // this.myTestChannels.map getYoutubeChannel("InTheLittleWood");
   }

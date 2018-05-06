@@ -1,3 +1,6 @@
+/**
+ * Main container, contains all blocks
+ */
 import React from "react";
 
 const FeedGrid = props => {
