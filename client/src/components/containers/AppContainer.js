@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import App from "../App";
 // import { getPersons, hirePerson, firePerson } from "../../ducks/person";
-import { youtubeChannel } from "../../ducks/feeds";
+import { getFeed } from "../../ducks/feeds";
 import { withRouter } from "react-router";
 
 export default withRouter(
@@ -14,7 +14,7 @@ export default withRouter(
       };
     },
     {
-      youtubeChannel
+      getFeed
     }
   )(App)
 );

@@ -1,32 +1,55 @@
 import { List, Map } from "immutable";
 
-import youtubeService from "../services/feeds/youtube";
+// import { feedRequest } from "../services/feeds";
+import { get as getYoutube } from "../services/feeds/youtube";
+import personService from "../services/person";
 // import personService from '../services/person'
 
 const defaultState = Map({
   feeds: List()
 });
 
-// tee: päätä datarakenne feedeille
-
-export const youtubeChannel = channel => {
+export const getFeed = ({ type, param }) => {
+  return {
+    type: "GET_FEED",
+    payload: {
+      promise: getYoutube(param),
+      data: param
+    }
+  };
+  /*
+  console.log(type, param);
   return dispatch => {
     dispatch({
-      type: "GET_YOUTUBE_PENDING"
+      type: "GET_FEED_PENDING"
     });
-    youtubeService
-      .getYoutubeChannel(channel)
+
+    try {
+      console.log("trying");
+      const result = getYoutube(param);
+      console.log("result is", result);
+      dispatch({ type: "GET_FEED", payload: result }); // List(data)
+    } catch (e) {
+      dispatch({
+        type: "GET_FEED_REJECTED",
+        error: true,
+        payload: e
+      });
+    }
+
+    /*
       .then(data => {
-        dispatch({ type: "GET_YOUTUBE_FULFILLED", payload: data }); // List(data)
+        dispatch({ type: "GET_FEED_FULFILLED", payload: data }); // List(data)
       })
       .catch(e => {
         dispatch({
-          type: "GET_YOUTUBE_REJECTED",
+          type: "GET_FEED_REJECTED",
           error: true,
           payload: e
         });
       });
   };
+      */
 };
 
 export default function feedReducer(state = defaultState, action) {
@@ -48,7 +71,8 @@ export default function feedReducer(state = defaultState, action) {
         }
       );
     */
-    case "GET_YOUTUBE_FULFILLED":
+    case "GET_FEED_FULFILLED":
+      console.log('reducing!');
       return state.set("feeds", List(payload));
 
     default:

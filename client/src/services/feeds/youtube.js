@@ -1,3 +1,5 @@
+// @flow
+
 import axios from "axios/index";
 import { YOUTUBE_API_KEY } from "../../config/api";
 
@@ -8,7 +10,7 @@ const validateChannel = (items, query) => {
   return result[0].id.channelId;
 };
 
-const getLatestVideos = (items, channelId) => {
+const getLatestVideos = (items, channelId: string) => {
   const result = items.filter(
     item =>
       item.id.kind === "youtube#video" && item.snippet.channelId === channelId
@@ -19,23 +21,23 @@ const getLatestVideos = (items, channelId) => {
   return result;
 };
 
-const getYoutubeChannel = async query => {
-  try {
-    const res = await axios.get(
+export const get = (query: string) => {
+  return axios
+    .get(
       `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&key=${YOUTUBE_API_KEY}`
-    );
-
-    if (res.data && res.data.items) {
-      const channelId = validateChannel(res.data.items, query);
-      return getLatestVideos(res.data.items, channelId);
-    }
-    return null;
-  } catch (e) {
-    console.log(e);
-    throw e;
-  }
+    )
+    .then(res => {
+      if (res.data && res.data.items) {
+        const channelId = validateChannel(res.data.items, query);
+        return getLatestVideos(res.data.items, channelId);
+      }
+    })
+    .catch(e => {
+      console.log(e);
+      throw e;
+    });
 };
 
 export default {
-  getYoutubeChannel
+  get
 };
