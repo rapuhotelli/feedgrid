@@ -6,7 +6,7 @@ import personService from "../services/person";
 // import personService from '../services/person'
 
 const defaultState = Map({
-  feeds: List()
+  content: List()
 });
 
 export const getFeed = ({ type, param }) => {
@@ -54,10 +54,9 @@ export const getFeed = ({ type, param }) => {
 
 export default function feedReducer(state = defaultState, action) {
   const { type, payload } = action;
-
   switch (type) {
     /*
-    case "GET_YOUTUBE_FULFILLED":
+    case "GET_YOUTUBE_INSERT??":
       return state.update("feeds", feed => feed.push(payload));
 
     case "GET_YOUTUBE_PENDING":
@@ -72,8 +71,7 @@ export default function feedReducer(state = defaultState, action) {
       );
     */
     case "GET_FEED_FULFILLED":
-      console.log('reducing!');
-      return state.set("feeds", List(payload));
+      return state.set("content", List(payload));
 
     default:
       return state;
