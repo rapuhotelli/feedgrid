@@ -6,7 +6,12 @@ import React from "react";
 const FeedGrid = props => {
   const { feed } = props;
 
-  return <div>{}</div>;
+  return (
+    <div>
+      I am a FeedGrid
+    {' '}
+    </div>
+  );
 };
 
 export default FeedGrid;

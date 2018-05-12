@@ -3,7 +3,7 @@ import styles from "./App.pcss";
 import Loading from "./Loading";
 // import IndexPage from "./IndexPage";
 import FeedGrid from "./FeedGrid";
-// import { getYoutubeChannel } from "../services/feeds";
+import { youtube } from "../services/feeds";
 import { Switch, Route } from "react-router";
 
 // const myTestChannels = ["InTheLittleWood"];
@@ -17,6 +17,8 @@ class App extends React.PureComponent {
     */
     // this.props.getPersons();
     // this.myTestChannels.map getYoutubeChannel("InTheLittleWood");
+    // youtube.getYoutubeChannel("InTheLittleWood");
+    this.props.youtubeChannel("InTheLittleWood");
   }
 
   state = {

@@ -1,16 +1,18 @@
 import { connect } from "react-redux";
 import App from "../App";
 // import { getPersons, hirePerson, firePerson } from "../../ducks/person";
-import { youtubeChannel } from "../../ducks/feed";
+import { youtubeChannel } from "../../ducks/feeds";
 import { withRouter } from "react-router";
 
 export default withRouter(
   connect(
-    state => ({
+    function mapStateToProps(state) {
       // persons: state.person.get("persons"),
-      feeds: state.feeds.get("feeds"),
-      loading: state.ui.get("loading")
-    }),
+      return {
+        feeds: state.feeds.get("feeds"),
+        loading: state.ui.get("loading")
+      };
+    },
     {
       youtubeChannel
     }
