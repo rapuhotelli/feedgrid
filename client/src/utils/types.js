@@ -6,9 +6,7 @@ export type FeedObject = {
 };
 
 export type FeedItem = {
-  
-}
+  title: string
+};
 
-export type VideoFeedItem = {
-
-}
+export type VideoFeedItem = {};

@@ -1,6 +1,6 @@
 // @flow
 import getYoutube from "./youtube";
-import { FeedObject } from "../../utils/types";
+import { type FeedObject } from "../../utils/types";
 
 export function feedRequest(feed: FeedObject) {
   switch (feed.type) {

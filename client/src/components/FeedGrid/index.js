@@ -2,16 +2,21 @@
  * Main container, contains all blocks
  */
 import React from "react";
-
-// const chooseComponent = (feed) =>
+import YoutubeItem from "../Items/Youtube";
 
 const FeedGrid = props => {
   const { feeds } = props;
-
+  const testItem = feeds.get(0);
+  if (!testItem) {
+    return null;
+  }
   return (
     <div>
       I am a FeedGrid
-      {feeds.map(feed => "lol")}
+      <YoutubeItem
+        title={testItem.snippet.title}
+        thumbnail={testItem.snippet.thumbnails.default.url}
+      />
     </div>
   );
 };

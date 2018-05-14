@@ -21,11 +21,7 @@ const getLatestVideos = (items, channelId: string) => {
   return result;
 };
 
-const toFeedItem = {
-
-}
-
-export const getYoutube = (query: string) => {
+export const getYoutube = (query: string): Promise<Response> => {
   return axios
     .get(
       `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&key=${YOUTUBE_API_KEY}`
