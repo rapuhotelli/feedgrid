@@ -3,13 +3,15 @@
  */
 import React from "react";
 
+// const chooseComponent = (feed) =>
+
 const FeedGrid = props => {
-  const { feed } = props;
+  const { feeds } = props;
 
   return (
     <div>
       I am a FeedGrid
-    {' '}
+      {feeds.map(feed => "lol")}
     </div>
   );
 };

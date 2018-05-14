@@ -1,6 +1,14 @@
 // @flow
 
-export type FeedRequest = {
+export type FeedObject = {
   type: string,
-  id: string
+  param: string
 };
+
+export type FeedItem = {
+  
+}
+
+export type VideoFeedItem = {
+
+}

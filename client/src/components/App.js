@@ -9,29 +9,13 @@ import { Switch, Route } from "react-router";
 const feeds = [
   {
     type: "youtube",
-    id: "InTheLittleWood"
+    param: "InTheLittleWood"
   }
 ];
 
 class App extends React.PureComponent {
   componentDidMount() {
-    /*
-    if (this.props.persons.count() > 0) {
-      return;
-    }
-    */
-    // this.props.getPersons();
-    // this.myTestChannels.map getYoutubeChannel("InTheLittleWood");
-    // youtube.getYoutubeChannel("InTheLittleWood");
-    // this.props.youtubeChannel("InTheLittleWood");
-    // getFeed("youtube", "InTheLittleWood");
-    // this.props.getFeeds
-    // feeds.map(feedObject => this.props.getFeed(feedObject));
-    this.props.getFeed({
-      type: "youtube",
-      id: "InTheLittleWood",
-      param: "InTheLittleWood"
-    });
+    feeds.map(feedObject => this.props.getFeed(feedObject));
   }
 
   state = {
@@ -59,7 +43,7 @@ class App extends React.PureComponent {
             path="/"
             exact
             render={props => {
-              return <FeedGrid feeds={[]} />;
+              return <FeedGrid feeds={this.props.feeds} />;
             }}
           />
           <Route

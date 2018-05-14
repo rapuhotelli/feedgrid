@@ -1,55 +1,18 @@
 import { List, Map } from "immutable";
 
-// import { feedRequest } from "../services/feeds";
-import { get as getYoutube } from "../services/feeds/youtube";
-import personService from "../services/person";
-// import personService from '../services/person'
+import { feedRequest } from "../services/feeds";
 
 const defaultState = Map({
   content: List()
 });
 
-export const getFeed = ({ type, param }) => {
+export const getFeed = feedObject => {
   return {
     type: "GET_FEED",
     payload: {
-      promise: getYoutube(param),
-      data: param
+      promise: feedRequest(feedObject)
     }
   };
-  /*
-  console.log(type, param);
-  return dispatch => {
-    dispatch({
-      type: "GET_FEED_PENDING"
-    });
-
-    try {
-      console.log("trying");
-      const result = getYoutube(param);
-      console.log("result is", result);
-      dispatch({ type: "GET_FEED", payload: result }); // List(data)
-    } catch (e) {
-      dispatch({
-        type: "GET_FEED_REJECTED",
-        error: true,
-        payload: e
-      });
-    }
-
-    /*
-      .then(data => {
-        dispatch({ type: "GET_FEED_FULFILLED", payload: data }); // List(data)
-      })
-      .catch(e => {
-        dispatch({
-          type: "GET_FEED_REJECTED",
-          error: true,
-          payload: e
-        });
-      });
-  };
-      */
 };
 
 export default function feedReducer(state = defaultState, action) {

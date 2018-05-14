@@ -21,7 +21,11 @@ const getLatestVideos = (items, channelId: string) => {
   return result;
 };
 
-export const get = (query: string) => {
+const toFeedItem = {
+
+}
+
+export const getYoutube = (query: string) => {
   return axios
     .get(
       `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&key=${YOUTUBE_API_KEY}`
@@ -38,6 +42,4 @@ export const get = (query: string) => {
     });
 };
 
-export default {
-  get
-};
+export default getYoutube

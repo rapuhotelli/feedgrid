@@ -1,11 +1,11 @@
 // @flow
-import youtube from "./youtube";
-import FeedRequest from "../../utils/types";
+import getYoutube from "./youtube";
+import { FeedObject } from "../../utils/types";
 
-export function feedRequest(feed: FeedRequest) {
+export function feedRequest(feed: FeedObject) {
   switch (feed.type) {
     case "youtube":
-      return youtube;
+      return getYoutube(feed.param);
     default:
       throw new Error("Bad feed type");
   }
