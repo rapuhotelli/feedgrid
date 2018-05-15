@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import * as colors from "../Block/colors"
 
 const YoutubeItemStyles = styled.div`
-  background-color: red;
+  background-color: ${colors.youtubeRed};
   color: white;
   font-family: "IBM Plex Sans", sans-serif;
 `;
