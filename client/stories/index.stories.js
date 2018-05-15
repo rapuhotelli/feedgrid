@@ -8,6 +8,8 @@ import { Welcome } from "@storybook/react/demo";
 import Button from "../src/components/Button";
 import YoutubeItem from "../src/components/Items/Youtube";
 import TestHeader from "../src/components/Common/TestHeader";
+import Markkapenni from "../src/components/Common/Markkapenni";
+import Tweet from "../src/components/Items/Tweet";
 
 storiesOf("Common/TestHeader", module).add("normal", () => (
   <TestHeader/>
@@ -17,8 +19,15 @@ storiesOf("Items/Youtube", module).add("normal", () => (
     title="Lusso Grande"
     thumbnail="http://place.manatee.lc/120/90.jpg"
   />
-));
-
+))
+storiesOf("Common/Markkapenni", module).add("normal", () => (
+  <Markkapenni/>
+))
+  ;
+storiesOf("Items/Tweet", module).add("normal", () => (
+  <Tweet/>
+))
+  ;
 
 storiesOf("Welcome", module).add("to Storybook", () => (
   <Welcome showApp={linkTo("Button")} />
