@@ -7,6 +7,18 @@ import { linkTo } from "@storybook/addon-links";
 import { Welcome } from "@storybook/react/demo";
 import Button from "../src/components/Button";
 import YoutubeItem from "../src/components/Items/Youtube";
+import TestHeader from "../src/components/Common/TestHeader";
+
+storiesOf("Common/TestHeader", module).add("normal", () => (
+  <TestHeader/>
+))
+storiesOf("Items/Youtube", module).add("normal", () => (
+  <YoutubeItem
+    title="Lusso Grande"
+    thumbnail="http://place.manatee.lc/120/90.jpg"
+  />
+));
+
 
 storiesOf("Welcome", module).add("to Storybook", () => (
   <Welcome showApp={linkTo("Button")} />
@@ -24,9 +36,3 @@ storiesOf("Button", module)
     </Button>
   ));
 
-storiesOf("Items/Youtube", module).add("normal", () => (
-  <YoutubeItem
-    title="Lusso Grande"
-    thumbnail="http://place.manatee.lc/120/90.jpg"
-  />
-));
