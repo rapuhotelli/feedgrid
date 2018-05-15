@@ -8,6 +8,7 @@
 import React from "react";
 import styled from "styled-components";
 import * as color from "../Block/colors";
+import avatar from "../../assets/Oval.png";
 
 // span-elementti, sininen
 const Spanni = styled.span`
@@ -49,8 +50,14 @@ font-weight: 300;
 
 //Background
 const Background = styled.div`
-background: ${color.twitterBlue}
+background: ${color.twitterBlue};
+padding-left: 16px;
 `;
+
+//Avatar
+const Avatar = styled.div`
+background-image: 
+
 
 // Lopullinen ulostettava komponentti. Sisältää sisäkkäin yllä määritellyn suurifonttisen otsikon,
 // jonka sisällä (aika turhan) sinistä tekstiä sisältävän span-elementin
