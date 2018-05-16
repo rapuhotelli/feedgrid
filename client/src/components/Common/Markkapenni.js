@@ -20,9 +20,8 @@ const Tyylittelyt = styled.h3`
   color: ${color.white};
   font-family: "IBM Plex Sans", sans-serif;
   line-height: 64pt;
-  font-weight: 200; 
+  font-weight: 200;
   background: ${color.twitterBlue};
-
 `;
 
 // h2
@@ -31,21 +30,16 @@ const HaistaJukkisGagga = styled.h3`
   color: ${color.white};
   font-family: "IBM Plex Sans", sans-serif;
   line-height: 32pt;
-  font-weight: 200; 
+  font-weight: 200;
   background: ${color.twitterBlueLight};
-
 `;
 
 // Lopullinen ulostettava komponentti. Sisältää sisäkkäin yllä määritellyn suurifonttisen otsikon,
 // jonka sisällä (aika turhan) sinistä tekstiä sisältävän span-elementin
 const Markkapenni = () => (
-    <div>
-  <Tyylittelyt>
-    Olen otsikko
-  </Tyylittelyt>
-  <HaistaJukkisGagga>
-  Yksi markka mutta mikä penni
-  </HaistaJukkisGagga>
+  <div>
+    <Tyylittelyt>Olen otsikko</Tyylittelyt>
+    <HaistaJukkisGagga>Yksi markka mutta mikä penni</HaistaJukkisGagga>
   </div>
 );
 
