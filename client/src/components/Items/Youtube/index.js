@@ -5,9 +5,9 @@ import React from "react";
 import classes from "./youtube.pcss";
 
 const YoutubeItem = ({ title, thumbnail }) => (
-  <div className={classes.youtubeItem}>
+  <div className={classes.youtubeItemB}>
     <h3>{title}</h3>
-    <img src={thumbnail} alt="Thumbnail" />
+    <img src={thumbnail} alt="" />
   </div>
 );
 

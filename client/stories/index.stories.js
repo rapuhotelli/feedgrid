@@ -12,33 +12,32 @@ import Markkapenni from "../src/components/Common/Markkapenni";
 import Tweet from "../src/components/Items/Tweet";
 import GenericItem from "../src/components/Items";
 
-storiesOf("Common/TestHeader", module).add("normal", () => (
-  <TestHeader/>
-))
-storiesOf("Common/GenericItem", module).add("normal", () => (
-  <GenericItem />
-))
+storiesOf("Items/GenericItem", module).add("normal", () => <GenericItem />);
 
 storiesOf("Items/Youtube", module).add("normal", () => (
   <YoutubeItem
     title="Lusso Grande"
     thumbnail="http://place.manatee.lc/120/90.jpg"
   />
-))
-storiesOf("Common/Markkapenni", module).add("normal", () => (
-  <Markkapenni/>
-))
-  ;
+));
+
 storiesOf("Items/Tweet", module).add("normal", () => (
-  <Tweet/>
-))
-  ;
+  <Tweet
+    name="Gaylord"
+    username="@drkobros 28 Jan 2016"
+    tweet="Yeah, I know I should have joined Twitter ages ago. But you know,
+        traveling around the world doing my business keeps me really busy...
+        #salmoncheek"
+  />
+));
+
+storiesOf("Common/Markkapenni", module).add("normal", () => <Markkapenni />);
 
 storiesOf("Welcome", module).add("to Storybook", () => (
   <Welcome showApp={linkTo("Button")} />
 ));
 
-storiesOf("Button", module)
+storiesOf("Welcome/Button", module)
   .add("with text", () => (
     <Button onClick={action("clicked")}>Hello Button</Button>
   ))
@@ -49,4 +48,3 @@ storiesOf("Button", module)
       </span>
     </Button>
   ));
-
