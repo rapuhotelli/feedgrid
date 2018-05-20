@@ -10,9 +10,19 @@ import YoutubeItem from "../src/components/Items/Youtube";
 import TestHeader from "../src/components/Common/TestHeader";
 import Markkapenni from "../src/components/Common/Markkapenni";
 import Tweet from "../src/components/Items/Tweet";
-import GenericItem from "../src/components/Items";
+import Item from "../src/components/Items";
 
-storiesOf("Items/GenericItem", module).add("normal", () => <GenericItem />);
+storiesOf("Items/Item", module).add("normal", () => (
+  <Item
+    type="tweet"
+    name="Gaylord"
+    username="@drkobros 28 Jan 2016"
+    tweet="Yeah, I know I should have joined Twitter ages ago. But you know,
+    traveling around the world doing my business keeps me really busy...
+    #salmoncheek"
+    pose="hidden"
+  />
+));
 
 storiesOf("Items/Youtube", module).add("normal", () => (
   <YoutubeItem
@@ -21,7 +31,7 @@ storiesOf("Items/Youtube", module).add("normal", () => (
   />
 ));
 
-storiesOf("Items/Tweet", module).add("normal", () => (
+storiesOf("Items/Tweet", module).add("Gaylord", () => (
   <Tweet
     name="Gaylord"
     username="@drkobros 28 Jan 2016"
