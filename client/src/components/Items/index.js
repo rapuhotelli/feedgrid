@@ -2,11 +2,28 @@ import React from "react";
 import style from "./griditem.pcss";
 import classNames from "classnames";
 
-const GenericItem = () => {
+import HN from "./HN";
+import Tweet from "./Tweet";
+import Youtube from "./Youtube";
+
+const chooseComponent = (props) => {
+  const { type, ...rest } = props;
+  switch (type) {
+    case "youtube":
+      return <Youtube {...rest} />;
+    case "tweet":
+      return <Tweet {...rest} />;
+    case "HN":
+      return <HN {...rest} />;
+    default:
+      return null;
+  }
+};
+
+const GenericItem = props => {
   return (
-    <div style={classNames(style.gridItem, style.youtube)}>
-
-
+    <div className={classNames(style.gridItem, style.youtube)}>
+      {chooseComponent(props)}
     </div>
   );
 };

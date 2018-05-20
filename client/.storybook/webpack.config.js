@@ -5,14 +5,14 @@
 // IMPORTANT
 // When you add this file, we won't add the default configurations which is similar
 // to "React Create App". This only has babel loader to load JavaScript.
+const full = require('../.broilerplate')('client');
 
 module.exports = {
-  plugins: [
-    // your custom plugins
-  ],
+  plugins: [],
   module: {
     rules: [
       // add your custom rules.
+      ...full.module.rules
     ],
   },
 };

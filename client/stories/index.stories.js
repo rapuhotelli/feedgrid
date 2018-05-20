@@ -10,10 +10,15 @@ import YoutubeItem from "../src/components/Items/Youtube";
 import TestHeader from "../src/components/Common/TestHeader";
 import Markkapenni from "../src/components/Common/Markkapenni";
 import Tweet from "../src/components/Items/Tweet";
+import GenericItem from "../src/components/Items";
 
 storiesOf("Common/TestHeader", module).add("normal", () => (
   <TestHeader/>
 ))
+storiesOf("Common/GenericItem", module).add("normal", () => (
+  <GenericItem />
+))
+
 storiesOf("Items/Youtube", module).add("normal", () => (
   <YoutubeItem
     title="Lusso Grande"

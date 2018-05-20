@@ -4,6 +4,7 @@
 contains all blocks
 
 ## Block
+A container / "category" of a one type of feed
 props:
 - type (string) (youtube, hn, etc)
   - select classNames by type
@@ -11,11 +12,12 @@ props:
 
 type prop decides colors and which list item component is used for data
 
-## YoutubeListItem
+## Items
+### YoutubeListItem
 props:
 - items (array) list of items to show
 
-## HNListItem
+### HNListItem
 props:
 - items (array) list of items to show
 
