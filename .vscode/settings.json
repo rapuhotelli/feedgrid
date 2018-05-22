@@ -1,0 +1,5 @@
+{
+  "flow.pathToFlow": "${workspaceRoot}/client/node_modules/flow-bin/flow-osx-v0.68.0/flow",
+  "flow.runOnEdit": false,
+  "javascript.validate.enable": false
+}
