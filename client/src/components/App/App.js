@@ -1,14 +1,11 @@
 // @flow
 
-import React from "react";
+import React, { Fragment } from "react";
 import "./App.pcss";
-import Loading from "./Loading";
-// import IndexPage from "./IndexPage";
-import FeedGrid from "./FeedGrid";
+import Loading from "../Loading";
+import FeedGrid from "../FeedGrid";
 import { Switch, Route } from "react-router";
-// import youtube from "../services/feeds/youtube";
-import { type FeedObject } from "../utils/types";
-import type { Map } from "immutable";
+import { type FeedObject } from "../../utils/types";
 
 const feedList = [
   {
@@ -48,7 +45,7 @@ class App extends React.PureComponent<Props, State> {
       return <div>{error.message}</div>;
     }
     return (
-      <div>
+      <Fragment>
         {loading > 0 && <Loading />}
 
         <Switch>
@@ -69,7 +66,7 @@ class App extends React.PureComponent<Props, State> {
             }}
           />
         </Switch>
-      </div>
+      </Fragment>
     );
   }
 }

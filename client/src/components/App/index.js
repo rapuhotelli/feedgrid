@@ -1,10 +1,11 @@
 // @flow
 
 import { connect } from "react-redux";
-import App from "../App";
+import App from "./App";
 // import { getPersons, hirePerson, firePerson } from "../../ducks/person";
 import { getFeed } from "../../ducks/feeds";
 import { withRouter } from "react-router";
+import toJS from "../../utils/components/toJS";
 
 export default withRouter(
   connect(
@@ -18,5 +19,5 @@ export default withRouter(
     {
       getFeed
     }
-  )(App)
+  )(toJS(App))
 );

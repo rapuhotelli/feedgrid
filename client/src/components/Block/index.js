@@ -47,8 +47,8 @@ const Block = ({ type, items }) => {
   return (
     <div>
       <h2>{title}</h2>
-      {items.toArray().map(item => {
-        return <DynamicItem key={item.get("id")} item={item} />;
+      {items.map(item => {
+        return <DynamicItem key={item.id} item={item} />;
       })}
     </div>
   );
