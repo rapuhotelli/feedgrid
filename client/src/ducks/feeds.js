@@ -1,9 +1,10 @@
-import { List, Map } from "immutable";
+import { List, Map, Set } from "immutable";
 
 import { feedRequest } from "../services/feeds";
 
 const defaultState = Map({
-  content: List()
+  content: List(),
+  feedTypes: Set()
 });
 
 export const getFeed = feedObject => {
@@ -14,6 +15,8 @@ export const getFeed = feedObject => {
     }
   };
 };
+
+const getAllTypes = feeds => Set(feeds.map(feed => feed.get("type"))).toArray();
 
 export default function feedReducer(state = defaultState, action) {
   const { type, payload } = action;
@@ -34,6 +37,7 @@ export default function feedReducer(state = defaultState, action) {
       );
     */
     case "GET_FEED_FULFILLED":
+      state = state.set("feedTypes", getAllTypes(payload));
       return state.set("content", List(payload));
 
     default:

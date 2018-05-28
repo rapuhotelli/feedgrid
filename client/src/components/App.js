@@ -1,7 +1,7 @@
 // @flow
 
 import React from "react";
-import styles from "./App.pcss";
+import "./App.pcss";
 import Loading from "./Loading";
 // import IndexPage from "./IndexPage";
 import FeedGrid from "./FeedGrid";

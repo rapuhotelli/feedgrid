@@ -1,8 +1,8 @@
 import React from "react";
 
-import HN from "./HN";
-import Tweet from "./Tweet";
-import Youtube from "./Youtube";
+import HN from "../Items/HN";
+import Tweet from "../Items/Tweet";
+import Youtube from "../Items/Youtube";
 /**
  * Takes in a block type
  * @param {*} props
@@ -40,12 +40,18 @@ const chooseComponent = type => {
   }
 };
 
-const Block = props => {
-  const { ListItem, title } = blocks[props.type];
+const Block = ({ type, items }) => {
+  const details = blocks[type];
+  const DynamicItem = details.itemComponent;
+  const title = details.title;
   return (
     <div>
       <h2>{title}</h2>
-      {props.items.map(item => console.log)}
+      {items.toArray().map(item => {
+        return <DynamicItem key={item.get("id")} item={item} />;
+      })}
     </div>
   );
 };
+
+export default Block;
