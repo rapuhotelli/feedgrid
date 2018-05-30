@@ -1,16 +1,14 @@
 import React from "react";
 
-// import * as colors from "../Block/colors"
-// import classes from "../../Common/common.pcss";
 import classes from "./youtube.pcss";
+import Image from "../../elements/Image";
 
 const YoutubeItem = ({ item }) => {
   return (
     <div className={classes.youtubeItem}>
       <h3>{item.title}</h3>
-      <img src={item.thumbnail.url} alt="" />
+      <Image data={item.thumbnail} />
     </div>
   );
 };
-//
 export default YoutubeItem;
