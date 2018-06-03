@@ -11,7 +11,7 @@ const validateChannel = (items, query) => {
   return result[0].id.channelId;
 };
 
-const getLatestVideos = (items, channelId: string) => {
+const getLatestVideos = (items, channelId: string, author) => {
   const result = items.filter(
     item =>
       item.id.kind === "youtube#video" && item.snippet.channelId === channelId
@@ -19,15 +19,17 @@ const getLatestVideos = (items, channelId: string) => {
   result.sort(function(a, b) {
     return new Date(b.snippet.publishedAt) - new Date(a.snippet.publishedAt);
   });
-  return List(result.map(item => massage(item)));
+  return List(result.map(item => massage(item, author)));
 };
 
-const massage = youtubeVideoObject => {
+const massage = (youtubeVideoObject, author) => {
   return Map({
     type: "youtube",
     id: youtubeVideoObject.id.videoId,
     title: youtubeVideoObject.snippet.title,
-    thumbnail: youtubeVideoObject.snippet.thumbnails.default
+    thumbnail: youtubeVideoObject.snippet.thumbnails.default,
+    date: youtubeVideoObject.snippet.publishedAt,
+    author: author
   });
 };
 /*
@@ -74,7 +76,7 @@ export const getYoutube = (query: string): Promise<Response> => {
       if (res.data && res.data.items) {
         const channelId = validateChannel(res.data.items, query);
         if (!channelId) return null;
-        return getLatestVideos(res.data.items, channelId);
+        return getLatestVideos(res.data.items, channelId, query);
       }
     })
     .catch(e => {

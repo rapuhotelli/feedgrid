@@ -1,35 +1,30 @@
-import React from "react";
-import style from "./griditem.pcss";
-import classNames from "classnames";
-import withPose from "../withPose";
+import React, { Fragment } from "react";
+// import classNames from "classnames";
+// import withPose from "../withPose";
 
-import HN from "./HN";
-import Tweet from "./Tweet";
+// import HN from "./HN";
+// import Tweet from "./Tweet";
 import Youtube from "./Youtube";
 
-const chooseComponent = props => {
-  const { type, ...rest } = props;
-  switch (type) {
+const chooseComponent = item => {
+  switch (item.type) {
     case "youtube":
-      return <Youtube {...rest} />;
+      console.log("chosen youtube");
+      return <Youtube {...item} />;
+    /*
     case "tweet":
-      return <Tweet {...rest} />;
+      return <Tweet item={item} />;
     case "HN":
-      return <HN {...rest} />;
+      return <HN item={item} />;
+      */
     default:
+      console.log("defaults null");
       return null;
   }
 };
 
-const Item = props => {
-  console.log(props);
-  return (
-    <div className={classNames(style.gridItem, style.youtube)}>
-      {chooseComponent(props)}
-    </div>
-  );
-};
+const Item = props => chooseComponent(props.item);
 
 // const ItemWithPose = withPose(Item);
-
-export default withPose(Item);
+export default Item;
+//export default withPose(Item);

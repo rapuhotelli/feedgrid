@@ -5,6 +5,14 @@ import React from "react";
 import Block from "../Block";
 import styles from "./styles.pcss";
 
+const Header = () => {
+  return (
+    <div className={styles.header}>
+      <h1>Welcome to FeedGrid</h1>
+    </div>
+  );
+};
+
 const FeedGrid = props => {
   const { feeds, feedTypes } = props;
 
@@ -12,7 +20,7 @@ const FeedGrid = props => {
 
   return (
     <div className={styles.feedGrid}>
-      <h1>Welcome to FeedGrid</h1>
+      <Header />
       {feedTypes.map(feedType => (
         <Block
           key={feedType}

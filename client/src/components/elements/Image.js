@@ -4,6 +4,7 @@ import React from "react";
 // import { connect } from "react-redux";
 // import { loadState } from "../../ducks/elements";
 import styles from "./styles.pcss";
+import classNames from "classnames";
 
 /*
 type DispatchProps = {
@@ -12,17 +13,20 @@ type DispatchProps = {
 */
 type OwnProps = {
   alt: ?string,
-  data: Object
+  data: Object,
+  className: ?string
 };
 type State = {
   loading: boolean
 };
 type Props = OwnProps;
 
+/**
+ * Loading state unused as of now
+ */
 class Image extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    // this.props.loadState("PENDING");
     console.log(this.props.data);
     this.state = {
       loading: true
@@ -30,14 +34,12 @@ class Image extends React.Component<Props, State> {
   }
 
   loadSuccess() {
-    // this.props.loadState("FULFILLED");
     this.setState({
       loading: false
     });
   }
 
   loadFailed() {
-    // this.props.loadState("REJECTED");
     this.setState({
       loading: false
     });
@@ -50,7 +52,7 @@ class Image extends React.Component<Props, State> {
           height: this.props.data.height,
           width: this.props.data.width
         }}
-        className={styles.imageContainer}
+        className={classNames(styles.imageContainer, this.props.className)}
       >
         <img
           alt={this.props.alt || ""}

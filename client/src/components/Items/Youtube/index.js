@@ -3,11 +3,14 @@ import React from "react";
 import classes from "./youtube.pcss";
 import Image from "../../elements/Image";
 
-const YoutubeItem = ({ item }) => {
+const YoutubeItem = ({ title, thumbnail, author, date }) => {
   return (
     <div className={classes.youtubeItem}>
-      <h3>{item.title}</h3>
-      <Image data={item.thumbnail} />
+      <div className={classes.youtubeDetails}>
+        <h3>{title}</h3>
+        <p>{author}</p>
+      </div>
+      <Image data={thumbnail} />
     </div>
   );
 };
