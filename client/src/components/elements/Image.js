@@ -27,7 +27,6 @@ type Props = OwnProps;
 class Image extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    console.log(this.props.data);
     this.state = {
       loading: true
     };

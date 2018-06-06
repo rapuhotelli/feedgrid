@@ -37,8 +37,11 @@ export default function feedReducer(state = defaultState, action) {
       );
     */
     case "GET_FEED_FULFILLED":
-      state = state.set("feedTypes", getAllTypes(payload));
-      return state.set("content", List(payload));
+      state = state.set(
+        "feedTypes",
+        state.get("feedTypes").union(getAllTypes(payload))
+      );
+      return state.set("content", state.get("content").concat(List(payload)));
 
     default:
       return state;

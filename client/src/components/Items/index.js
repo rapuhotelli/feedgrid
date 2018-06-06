@@ -9,7 +9,6 @@ import Youtube from "./Youtube";
 const chooseComponent = item => {
   switch (item.type) {
     case "youtube":
-      console.log("chosen youtube");
       return <Youtube {...item} />;
     /*
     case "tweet":
@@ -18,7 +17,6 @@ const chooseComponent = item => {
       return <HN item={item} />;
       */
     default:
-      console.log("defaults null");
       return null;
   }
 };

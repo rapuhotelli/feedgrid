@@ -7,10 +7,15 @@ import FeedGrid from "../FeedGrid";
 import { Switch, Route } from "react-router";
 import { type FeedObject } from "../../utils/types";
 
+
 const feedList = [
   {
     type: "youtube",
     param: "InTheLittleWood"
+  },
+  {
+    type: "youtube",
+    param: "GameGrumps"
   }
 ];
 
